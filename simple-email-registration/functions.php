@@ -41,3 +41,11 @@ function get_registered_users($path = MAILING_LIST)
 
   return [];
 }
+
+function is_logged_in() {
+  return isset($_SESSION['username']);
+}
+
+function validate_user_creds($username, $password) {
+  return ($username === USERNAME AND $password === PASSWORD);
+}

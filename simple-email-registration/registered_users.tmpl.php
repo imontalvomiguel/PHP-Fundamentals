@@ -23,5 +23,6 @@
       </tr>
       <?php endif; ?>
     </table>
+    <p><a href="logout.php">Log Out</a></p>
   </body>
 </html>
