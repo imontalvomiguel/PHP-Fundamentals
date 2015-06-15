@@ -1,6 +1,6 @@
 <?php
 
-define('MAILING_LIST', 'mailing_list.php');
+define('MAILING_LIST', '../mailing_list.php');
 
 function register_user($name, $email)
 {
