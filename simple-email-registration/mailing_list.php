@@ -1,2 +1,2 @@
-nombre: email@dominio.com
-juan: juan@juanito.com
+Martin Lopez: martin_lopez@hotmail.com
+Jair Loredo: jair@hotmail.com
