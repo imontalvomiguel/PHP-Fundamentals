@@ -9,3 +9,12 @@ try {
   echo $e->getMessage();
   die();
 }
+
+try {
+  $results = $conn->query('SELECT * FROM film');
+} catch(Exception $e) {
+  echo $e->getMessage();
+  die();
+}
+$films = $results->fetchAll(PDO::FETCH_ASSOC);
+var_dump($films);
