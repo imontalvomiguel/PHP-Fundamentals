@@ -1,10 +1,10 @@
-<?php
+<?php namespace Blog\DB;
 
 function connect($config) {
   $dsn = 'mysql:host=localhost;dbname=sakila';
   try {
-    $conn = new PDO($dsn, $config['DB_USERNAME'], $config['DB_PASSWORD']);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn = new \PDO($dsn, $config['DB_USERNAME'], $config['DB_PASSWORD']);
+    $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     return $conn;
   } catch(Exception $e) {
     return false;
@@ -20,7 +20,7 @@ function get($table, $conn)
     $results = $conn->query("SELECT * FROM $table");
     if ($results->rowCount() > 0)
     {
-      return $results->fetchAll(PDO::FETCH_ASSOC);
+      return $results->fetchAll(\PDO::FETCH_ASSOC);
     } else {
       return false;
     }
@@ -38,7 +38,7 @@ function query($query, $bindings, $conn)
      */
     $results = $conn->prepare($query);
     $results->execute($bindings);
-    return $results->fetchAll(PDO::FETCH_ASSOC);
+    return $results->fetchAll(\PDO::FETCH_ASSOC);
   } catch(Exception $e) {
     return false;
   }

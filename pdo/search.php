@@ -3,15 +3,17 @@
 require_once 'config.php';
 require_once 'functions.php';
 
+use Blog\DB as Database;
+
 if ( !empty($_GET['s']) ) {
 
   $s = $_GET['s'];
 
-  $conn = connect($config);
+  $conn = Database\connect($config);
 
   if ($conn)
   {
-    $search_results = query('SELECT * FROM film WHERE title LIKE :term', [':term' => '%' . $s . '%'], $conn);
+    $search_results = Database\query('SELECT * FROM film WHERE title LIKE :term', [':term' => '%' . $s . '%'], $conn);
   } else {
     exit(':(');
   }
