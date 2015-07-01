@@ -43,3 +43,16 @@ function query($query, $bindings, $conn)
     return false;
   }
 }
+
+function get_by_id($table, $id, $conn)
+{
+  try {
+    $results = $conn->prepare("SELECT * FROM $table WHERE id = ?");
+    $results->bindParam(1, $id, \PDO::PARAM_INT);
+    $results->execute();
+    return $results->fetch(\PDO::FETCH_ASSOC);
+  } catch (Exception $e) {
+    echo $e->getMessage();
+    return false;
+  }
+}
