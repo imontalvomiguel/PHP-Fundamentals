@@ -11,6 +11,4 @@ $conn = Database\connect($config);
 
 if (!$conn) exit('Problem connecting to the db.');
 
-$posts = Database\get('posts', $conn);
-
-Helpers\renderView('index', ['posts' => $posts]);
+Helpers\controller($_GET['url']);

@@ -1,6 +1,6 @@
 <?php if ( !empty($posts) ) : foreach ($posts as $post) :?>
   <article>
-    <h2><a href="single.php?id=<?= $post['id']; ?>"><?= $post['title']; ?></a></h2>
+    <h2><a href="?url=single&id=<?= $post['id']; ?>"><?= $post['title']; ?></a></h2>
     <p><?= $post['body']; ?></p>
   </article>
 <?php endforeach; else : ?>
