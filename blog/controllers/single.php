@@ -2,7 +2,6 @@
 
 use Blog\DB as Database;
 use Blog\Helpers as Helpers;
-global $conn;
 
 $post = Database\get_by_id('posts', $_GET['id'], $conn);
 
