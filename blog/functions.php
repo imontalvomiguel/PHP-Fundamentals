@@ -44,15 +44,7 @@ function query($query, $bindings, $conn)
   }
 }
 
-function get_by_id($table, $id, $conn)
+function get_by_id($id, $table, $conn)
 {
-  try {
-    $results = $conn->prepare("SELECT * FROM $table WHERE id = ?");
-    $results->bindParam(1, $id, \PDO::PARAM_INT);
-    $results->execute();
-    return $results->fetch(\PDO::FETCH_ASSOC);
-  } catch (Exception $e) {
-    echo $e->getMessage();
-    return false;
-  }
+  return query("SELECT * FROM $table WHERE id = :id LIMIT 1", [':id' => $id], $conn);
 }

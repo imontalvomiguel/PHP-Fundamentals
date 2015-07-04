@@ -3,11 +3,11 @@
 use Blog\DB as Database;
 use Blog\Helpers as Helpers;
 
-$post = Database\get_by_id('posts', $_GET['id'], $conn);
+$post = Database\get_by_id( intval($_GET['id']), 'posts', $conn );
 
 if ($post)
 {
-  Helpers\renderView('single', ['post' => $post]);
+  Helpers\renderView( 'single', ['post' => $post[0]] );
 } else {
   header("HTTP/1.0 404 Not Found");
   exit('Not found');
