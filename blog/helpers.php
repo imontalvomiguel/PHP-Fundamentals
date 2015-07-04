@@ -9,7 +9,7 @@ function renderView($view, $vars = array())
   include 'views/layout.tmpl.php';
 }
 
-function controller($name) {
+function controller($name, $conn = null) {
 
   if (empty($name))
   {

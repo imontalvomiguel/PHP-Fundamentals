@@ -11,4 +11,4 @@ $conn = Database\connect($config);
 
 if (!$conn) exit('Problem connecting to the db.');
 
-Helpers\controller($_GET['url']);
+Helpers\controller($_GET['url'], $conn);
