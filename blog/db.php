@@ -17,7 +17,7 @@ function get($table, $conn, $limit = 10)
    * Query method.
    */
   try {
-    $results = $conn->query("SELECT * FROM $table LIMIT $limit");
+    $results = $conn->query("SELECT * FROM $table ORDER BY id DESC LIMIT $limit");
     if ($results->rowCount() > 0)
     {
       return $results->fetchAll(\PDO::FETCH_ASSOC);
@@ -38,7 +38,7 @@ function query($query, $bindings, $conn)
      */
     $results = $conn->prepare($query);
     $results->execute($bindings);
-    return $results->fetchAll(\PDO::FETCH_ASSOC);
+    return $results;
   } catch(\Exception $e) {
     return false;
   }
@@ -46,5 +46,6 @@ function query($query, $bindings, $conn)
 
 function get_by_id($id, $table, $conn)
 {
-  return query("SELECT * FROM $table WHERE id = :id LIMIT 1", [':id' => $id], $conn);
+  $query = query("SELECT * FROM $table WHERE id = :id LIMIT 1", [':id' => $id], $conn);
+  return $query->fetch(\PDO::FETCH_ASSOC);
 }

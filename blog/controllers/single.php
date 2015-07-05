@@ -7,7 +7,7 @@ $post = Database\get_by_id( intval($_GET['id']), 'posts', $conn );
 
 if ($post)
 {
-  Helpers\renderView( 'single', ['post' => $post[0]] );
+  Helpers\renderView( 'single', ['post' => $post] );
 } else {
   header("HTTP/1.0 404 Not Found");
   exit('Not found');
