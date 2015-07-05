@@ -1,0 +1,12 @@
+{
+  "name": "ubaldoomana/composer-activerecord",
+  "authors": [
+    {
+      "name": "imontalvomiguel",
+      "email": "ubaldo.im@gmail.com"
+    }
+  ],
+  "require": {
+    "php-activerecord/php-activerecord": "^1.1"
+  }
+}
